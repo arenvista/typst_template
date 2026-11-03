@@ -1,0 +1,26 @@
+# Typst package manifest.
+#
+# Installed under the `@local` namespace, so any document on this machine can
+# reach it with one line and no relative path:
+#
+#     #import "@local/folio:0.1.0": *
+#
+# See README.typ for how it is installed, and how to rename or version it.
+
+[package]
+name = "folio"
+version = "0.1.0"
+entrypoint = "template_main.typ"
+authors = ["Aren Vista"]
+description = "One template for notes, homework, papers and books: theorem environments, native figures, and one design language across four document shells."
+compiler = "0.15.0"
+
+# Source material the package itself does not need. Only matters if this is
+# ever published; the entrypoint is all a local install reads.
+exclude = ["README.pdf", "archive", "skills"]
+
+# `typst init @local/folio` copies the files below into a new directory, so a
+# new document starts from a working skeleton rather than a blank page.
+[template]
+path = "template"
+entrypoint = "main.typ"
